@@ -1,0 +1,37 @@
+.wrapper
+{
+    display: flex;
+    width: 100%;
+    background-color: rgb(68, 197, 29)
+}
+#sidebar
+{
+    background-color: rgb(70, 70, 70);
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+.sidebar-header
+{
+    color: white;
+    margin-top: 20px;
+    padding-left: 16px;
+    font-size: 1.5rem;
+}
+#notebook-spiral
+{
+    position: relative;
+    left: -95px;
+    top: -5px;
+    height: 100vh;
+    overflow: hidden;
+}
+.nav-link
+{
+    font-size: 1.5rem;
+    color: white;
+}
+.hidden
+{
+    visibility: hidden;
+}
