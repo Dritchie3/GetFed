@@ -11,17 +11,32 @@ nav {
     border-color: lightgreen;
 }
 
-.container {
-    margin: auto;
-    border: solid;
-    box-sizing: border-box;
+p {
+    font-family: Georgia;
+    font-size: 25px;
+    color: orangered;
 }
 
+.container {
+  width: 475px;
+  height: 500px;
+  border: 1px solid green;
+  margin-top: 20px;
+}
 
+.row {
+    border: 1px solid orange;
+    width: 250px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
 
 footer {
-    text-align: center;
     font-family: Georgia;
+    text-align: center;
     font-size: 20px;
-    color: limegreen;
 }
+
+
+

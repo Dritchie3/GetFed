@@ -11,7 +11,7 @@ $("#btn").on("click", function() {
     renderResults();
 
     function renderResults() {
-        var queryURL ='https://api.edamam.com/search?q=' + ingredients + '&app_id=7c4bfe4e&app_key=d65e09f7ab643fa5a0668444302a33cc';
+        var queryURL ='https://api.edamam.com/search?q=' + ingredients + '&app_id=7c4bfe4e&app_key=35198e90b1a2413dbcf9af60310e5939';
         console.log('queryURL')
 
         // Ajax query for recipePuppy
