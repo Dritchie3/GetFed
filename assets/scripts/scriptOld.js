@@ -1,4 +1,6 @@
-
+function getData(ingredients, quantity) {
+    
+}
 
 $("#btn").on("click", function() {
     console.log('choice button clicked');
@@ -6,6 +8,9 @@ $("#btn").on("click", function() {
     // ingredients = this.className
     let ingredients = $('#ingredient').val();
     renderResults();
+
+
+
 
     function renderResults() {
         let quantity = 10
@@ -17,24 +22,31 @@ $("#btn").on("click", function() {
                 method: "GET"
             })
             .then(function(response) {
+                let idNum = 0
              // Add function to clear all
                 for (let i = 0; i < response.hits.length; i++) {
-                    console.log('i = ' + i);
-                    let newId = response.hits[i].recipe.label;
-                    console.log('recipe name = ' + newId); 
-                    // Add to HTML with id= menuItem, add new div with id= newId named the recipe name (label)
-                    // $('<div></div>').addClass('imageContainer').appendTo('#menuItem');
-                    $('#menuItem').append('<div id=' + newId + '<h3>' + newId + '</h3></div>').css({'display': 'inline-block','font-size': '30px', 'color': 'red'})
+                    console.log('i = ' + i);                                 
+                    
+                    // call for the Recipe name
+                    let newId = response.hits[i].recipe.label;  
+                    console.log('recipe name = ' + newId);
+                    let menuId =('menu' + idNum)
+                    $('#menuItem').append('<div id="' + menuId + '/"><h3>' + newId + '</h3></div>');
+
+                    //  new div comenyt out before merge
+                    idNum++
+                    $('<div></div>').addClass('imageContainer').appendTo('#menuItem');
+                    
+                    // call for Image of recipe   
                     let image = response.hits[i].recipe.image;  
                     console.log('image = ' + image);
                     let newURL = response.hits[i].recipe.url;
-                    console.log('recipe = ' + newURL);  
-                    // append image to page  and anchor to href to take to instructions page.                  
-                    $('<a target="_blank" href="' + newURL + '"><img src=' + image + '></a>').appendTo('#menuItem');
+                    console.log('recipe = ' + newURL);                                  
+                    $('<a target="_blank" href="' + newURL + '"><img src=' + image + '></a>').appendTo('.imageContainer');
 
-                    // How to do this with each?????
+                    // Ingredient list
                     for (let k=0; k<response.hits[i].recipe.ingredients.length; k++){
-                        $('#menuItem').append('Ingredients needed.' + response.hits[i].recipe.ingredients[k].text).css({'color': 'black'});    
+                        $('.imageContainer').append(response.hits[i].recipe.ingredients[k].text + '<br>');    
                     
                     };
                 };
