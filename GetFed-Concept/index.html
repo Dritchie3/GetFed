@@ -7,18 +7,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://kit.fontawesome.com/0d3ee729be.js" crossorigin="anonymous"></script>
     <!--Bootstrap----------------------------------------------->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 
 <body>
 
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h2>GetFed</h2>
+                <h2>GetFed <i class="fas fa-drumstick-bite"></i></h2>
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -32,13 +33,91 @@
                 </li>
             </ul>
 
+
+
         </nav>
         <div id="notebook-spiral">
             <img src="0001.png" alt="">
         </div>
+
         <main>
-            <section id="Recipes" >
-                
+            <section id="Recipes">
+
+                <nav class="navbar navbar-light">
+                    <form class="form-inline">
+                        <input id='ingredient' class="form-control mr-sm-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button id='btn' class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <p>Locate Recipes by Ingredient</p>
+                </nav>
+
+                <div class="container">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button tabindex="-1" class="btn btn-default" type="button">Restrictions</button>
+                            <button tabindex="-1" data-toggle="dropdown" class="btn btn-default dropdown-toggle"
+                                type="button">
+                                <span class="caret"></span>
+                            </button>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="#">
+                                <li class="divider"></li>
+                                <li><a href="#">
+                                        <input type="checkbox">
+                                        <span class="lbl">Shellfish-Free</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <input type="checkbox"><span class="lbl">
+                                            Gluten-Free</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <input type="checkbox"><span class="lbl">
+                                            Dairy-Free</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <input type="checkbox"><span class="lbl">
+                                            Peanut-Free</span>
+                                    </a></li>
+                                <li><a href="#">
+                                        <input type="checkbox"><span class="lbl">Soy-Free
+                                        </span>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div>
+                                <div id='image' class='float-left'></div>
+                                <div id='title'></div>
+                                <div id='link'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div>
+                                <div id='image1' class='float-left'></div>
+                                <div id='title1'></div>
+                                <div id='link1'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div>
+                                <div id='image2' class='float-left'></div>
+                                <div id='title2'></div>
+                                <div id='link2'></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </section>
         </main>
     </div>

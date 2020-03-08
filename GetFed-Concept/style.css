@@ -1,12 +1,13 @@
+
 .wrapper
 {
     display: flex;
     width: 100%;
-    background-color: rgb(68, 197, 29)
+    background-color: rgb(150, 226, 131)
 }
 #sidebar
 {
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(245, 248, 45);
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
@@ -17,6 +18,10 @@
     margin-top: 20px;
     padding-left: 16px;
     font-size: 1.5rem;
+    font-family: Georgia;
+}
+i {
+    color: rgb(165, 87, 42);
 }
 #notebook-spiral
 {
@@ -30,8 +35,31 @@
 {
     font-size: 1.5rem;
     color: white;
+    font-family: Georgia;
 }
 .hidden
 {
     visibility: hidden;
 }
+nav {
+    border-style: solid;
+    border-color: lightgreen;
+}
+p {
+    font-family: Georgia;
+    font-size: 25px;
+    color: orangered;
+}
+section {
+    width: 1000px;
+    height: 650px;
+    border: 1px solid green;
+    margin-top: 30px;
+}
+.row {
+      border: 1px solid orange;
+      width: 250px;
+      height: 150px;
+      padding: 10px;
+      margin: 10px;
+  }
