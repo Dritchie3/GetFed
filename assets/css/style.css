@@ -13,15 +13,17 @@ nav {
 
 .container {
     margin: auto;
+    padding-top: 10px;
     border: solid;
     box-sizing: border-box;
 }
-
-
 
 footer {
     text-align: center;
     font-family: Georgia;
     font-size: 20px;
     color: limegreen;
+    position: relative;
+    clear: both;
+    
 }
