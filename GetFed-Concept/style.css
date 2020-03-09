@@ -14,7 +14,7 @@
 }
 .sidebar-header
 {
-    color: white;
+    color: orangered;
     margin-top: 20px;
     padding-left: 16px;
     font-size: 1.5rem;
@@ -34,7 +34,7 @@ i {
 .nav-link
 {
     font-size: 1.5rem;
-    color: white;
+    color: orangered;
     font-family: Georgia;
 }
 .hidden
