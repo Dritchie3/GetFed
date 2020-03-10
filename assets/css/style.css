@@ -1,0 +1,29 @@
+header {
+    font-family: Georgia;
+    font-weight: bolder;
+    font-size: 50px;
+    text-align: center;
+    color: blue;
+}
+
+nav {
+    border-style: solid;
+    border-color: lightgreen;
+}
+
+.container {
+    margin: auto;
+    padding-top: 10px;
+    border: solid;
+    box-sizing: border-box;
+}
+
+footer {
+    text-align: center;
+    font-family: Georgia;
+    font-size: 20px;
+    color: limegreen;
+    position: relative;
+    clear: both;
+    
+}
