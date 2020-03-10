@@ -96,9 +96,9 @@ function givenNutrients(responseNutrient) {
 $("#btn").on("click", function () {
     console.log('choice button clicked');
     event.preventDefault();
-    let ingredients = $('#ingredient').val();
+    let ingredients = $('.search-btn').val();
     // renderResults();
-    getData('beef', 10)
+    getData(ingredients, 10)
     // .then(getNutrition);
 });
 
@@ -116,58 +116,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
-// function getNutrition(){
-//     let recipe = recipes[0];
-//     let recipeIngred = encodeURI(recipes[0].ingredients[0].text);
-//     let query2 = 'https://api.edamam.com/api/nutrition-data?app_id=6a19c081&app_key=f8bc949d4bca737a82744dc19e89b1fa&ingr=' + recipeIngred;
-//     console.log('query2 = ' + query2);
-//     console.log('recepeIngred = ' + recipeIngred);
-//     console.log('recipe = ' + recipe);
-    
-//     return $.ajax({
-//         url: query2,
-//         method: "GET"
-//     })
-//         .then(function (response1) {
-//             console.log('ajax is working');
-//                 let obj2 = {
-//                     cal: response1.calories,
-//                     carbs:  response1.dietLabels,
-//                     fat: response1.totalNutrients.FAT.quantity, 
-//                     saturatedFats: response1.totalNutrients.FASAT.quantity,
-//                     polySatFats: response1.totalNutrients.FAPU.quantity,
-//                     monoSatFats: response1.totalNutrients.FAMS.quantity,
-//                     protien:  response1.totalNutrients.PROCNT.quantity,
-//                     // fiber: ,  not available                  
-//                     // sugars: , not available
-                    
-//                 };                
-//                 nutritionFacts.push(obj2);                
-            
-//                 console.log('obj2 = ' + obj2);
-//                 console.log('nutritionFacts array = ' + nutritionFacts)
-
-//                 console.log('cal: = ' + response1.calories);
-//                 console.log('carbs: = ' +  response1.dietLabels);
-//                 console.log('fat: = ' + response1.totalNutrients.FAT.quantity); 
-//                 console.log('saturatedFats: = ' + response1.totalNutrients.FASAT.quantity);
-//                 console.log('polySatFats: = ' + response1.totalNutrients.FAPU.quantity);
-//                 console.log('monoSatFats: = ' + response1.totalNutrients.FAMS.quantity);
-//                 console.log('protien: = ' + response1.totalNutrients.PROCNT.quantity);
-//                 fiber: ,                    
-//                 sugars: ,
-
-//             });            
-
-// };
 
 
 
