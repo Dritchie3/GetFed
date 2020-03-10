@@ -1,3 +1,0 @@
-# GetFed
-
-hey!
