@@ -1,4 +1,5 @@
 let recipes = [];
+let cookbook = [];
 let times = 0;
 let nutrient;
 // let NutritionFacts = [];
@@ -50,27 +51,10 @@ function getData(ingredients, quantity) {
                     obj.sugar =  recipe.totalNutrients.SUGAR.quantity
                 };
                 console.log('working thus far');
-
-
-
-
-
-                //     carbs:  recipe.totalNutrients.CHOCDF.quantity,                    
-                //     fat: recipe.totalNutrients.FAT.quantity, 
-                //     saturatedFats: recipe.totalNutrients.FASAT.quantity,
-                //     polySatFats: recipe.totalNutrients.FAPU.quantity,
-                //     monoSatFats: recipe.totalNutrients.FAMS.quantity,
-                //     protien:  recipe.totalNutrients.PROCNT.quantity,
-                //     fiber: recipe.totalNutrients.FIBTG.quantity,                 
-                //     sugars: recipe.totalNutrients.SUGAR.quantity
-                
-
-                
-                // givenNutrients('carbs', response.hits[i].recipe.totalNutrients.CHOCDF.quantity);
-                
                 
                 recipes.push(obj);
-                console.log(obj);
+               
+              
                 
             };
      
@@ -78,6 +62,17 @@ function getData(ingredients, quantity) {
         });
 };
 
+function renderSearch()
+{
+    recipes.forEach(function(item, indx){
+        let mealDiv = $("div");
+        let mealImg = $("img");
+
+        mealDiv.addclass("col-lg-3 meal-card");
+        
+        $(".recipe-container").append(mealDiv);
+    });
+}
 function givenNutrients(responseNutrient) {
     
     if (responseNutrient === undefined) {
@@ -93,10 +88,10 @@ function givenNutrients(responseNutrient) {
 
 
 // Buttton starts function not attached to any text box.
-$("#btn").on("click", function () {
+$(".search-btn").on("click", function () {
     console.log('choice button clicked');
     event.preventDefault();
-    let ingredients = $('.search-btn').val();
+    let ingredients = $('#ingredient').val();
     // renderResults();
     getData(ingredients, 10)
     // .then(getNutrition);
@@ -105,19 +100,3 @@ $("#btn").on("click", function () {
 
 
 // script moment clock
-$(document).ready(function () {
-    setInterval(() => {
-        var now = moment();
-        var readable = now.format("dddd MMM Do YYYY h:mm:ssa");
-        $("#menuItem").text(readable);
-    }, 1000);
-});
-
-
-
-
-
-
-
-
-
