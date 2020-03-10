@@ -1,0 +1,70 @@
+
+.wrapper
+{
+    display: flex;
+    width: 100%;
+    background-color: rgb(150, 226, 131)
+}
+#sidebar
+{
+    background-color: rgb(245, 248, 45);
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+.sidebar-header
+{
+    color: orangered;
+    margin-top: 20px;
+    padding-left: 16px;
+    font-size: 1.5rem;
+    font-family: Georgia;
+}
+i {
+    color: rgb(165, 87, 42);
+}
+#notebook-spiral
+{
+    position: relative;
+    left: -95px;
+    top: -5px;
+    height: 100vh;
+    overflow: hidden;
+}
+header {
+    font-family: Georgia;
+    font-size: 35px;
+    text-align: center;
+    color: darkorange;
+}
+.nav-link
+{
+    font-size: 1.5rem;
+    color: orangered;
+    font-family: Georgia;
+}
+.hidden
+{
+    visibility: hidden;
+}
+nav {
+    border-style: solid;
+    border-color: lightgreen;
+}
+p {
+    font-family: Georgia;
+    font-size: 25px;
+    color: orangered;
+}
+section {
+    width: 1000px;
+    height: 650px;
+    border: 1px solid green;
+    margin-top: 30px;
+}
+.row {
+      width: 850px;
+      height: 250px;
+      padding: 10px;
+      margin: 10px;
+  }
