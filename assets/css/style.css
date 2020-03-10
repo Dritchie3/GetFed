@@ -1,0 +1,112 @@
+
+body{
+    background-image: url("../img/green-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.wrapper
+{
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+#content
+{
+    width: 1000px;
+    margin-left: 50px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+}
+#sidebar
+{
+    background-image: url("../img/orange-background.jpg");
+    background-size: cover;
+    background-position: center;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+#sidebar.active {
+    margin-left: -300px;
+}
+#notebook-spiral.active
+{
+    margin-left: -300px;
+}
+.sidebar-header
+{
+    color: white;
+    margin-top: 20px;
+    padding-left: 16px;
+    font-size: 1.5rem;
+}
+.navbar-header h2
+{
+    color: white;
+    margin: 0;
+}
+#notebook-spiral
+{
+    background-image: url("../img/spiral.png");
+    background-size: 92px;
+    width: 92px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 200px;
+    top: 3px;
+    height: 100vh;
+    transition: all 0.3s;
+   
+}
+.nav-link
+{
+    font-size: 1.5rem;
+    color: white;
+}
+@media (max-width: 768px) 
+{
+ 
+    #content
+    {
+        width: 100%;
+        margin-right: 0;
+    }
+    .sidebar-header h2
+    {
+        font-size: 1.7rem;
+    }
+
+    #notebook-spiral
+    {
+        margin-left: -300px;
+    }
+    #notebook-spiral
+    {
+        background-size: 70px;
+        background-repeat: no-repeat;
+        left: 164px;
+        top: 10px;
+    }
+    #sidebar 
+    {
+
+        margin-left: -300px;
+    }
+    #sidebar.active 
+    {
+        min-width: 200px;
+        max-width: 200px;
+        margin-left: 0;
+    }
+    #notebook-spiral.active
+    {
+        margin-left: 0;
+    }
+    .nav-link
+    {
+        font-size: 1rem;
+    }
+}
