@@ -23,6 +23,7 @@ function getData(ingredients, quantity) {
         method: "GET"
     })
         .then(function (response) {
+            console.log(response);
             recipes = [];
             for (let i = 0; i < response.hits.length; i++) {
                 console.log('i = ' + i);
@@ -32,7 +33,8 @@ function getData(ingredients, quantity) {
                     recipeName: recipe.label,
                     imageURL: recipe.image,
                     ingredients: recipe.ingredients,
-                    cal: recipe.calories
+                    cal: recipe.calories,
+                    recipeUrl: recipe.url
                 };
                 if (recipe.totalNutrients.hasOwnProperty('CHOCDF')) {
                     obj.carbs = recipe.totalNutrients.CHOCDF.quantity
@@ -86,20 +88,20 @@ function getData(ingredients, quantity) {
                 recipes.push(obj);
             };
 
-
+            renderSearch();
         });
 };
 //-------------------Render Search Results-------------------
 function renderSearch()
 {
-    recipes.forEach(function(item, indx)
+    $("#meal-container").empty();
+    recipes.forEach(function (item, indx)
     {
-        console.log();
        $("<div class='col-lg-6 meal-card'>"+
-       "<div class=meal-img>"+"<img>"+"<h4 class='meal-title'>"+"Meal Title"+"</h4>"+"</div>"+
-       "<div class='meal-facts-right'>"+"<p>"+item.cal.toFixed(0)+"</p>"+"<p>"+item.carbs.toFixed(0)+"</p>"+"<p>"+item.fiber.toFixed(0)+"</p>"+"</div>"+
-       "<div class='meal-facts-left'>"+"<p>"+item.protien.toFixed(0)+"</p>"+"<p>"+item.fat.toFixed(0)+"</p>"+"<p>"+item.sugar.toFixed(0)+"</p>"+"</div>"+
-       "<div class='meal-options'>"+"<a href='#'>View Recipe</a>"+"<button>Add To Cookbook</button>"+"</div>"+
+       "<div class=meal-img>"+"<img"+" "+"src="+"'"+item.imageURL+"'"+" "+"alt='meal-img'>"+"<h4 class='meal-title'>"+item.recipeName+"</h4>"+"</div>"+
+       "<div class='meal-facts-right'>"+"<p>"+"Cal: "+item.cal.toFixed(0)+"</p>"+"<p>"+"Carbs: "+item.carbs.toFixed(0)+"</p>"+"<p>"+"Fiber: "+item.fiber.toFixed(0)+"</p>"+"</div>"+
+       "<div class='meal-facts-left'>"+"<p>"+"Protein: "+item.protien.toFixed(0)+"</p>"+"<p>"+"Fat: "+item.fat.toFixed(0)+"</p>"+"<p>"+"Sugar: "+item.sugar.toFixed(0)+"</p>"+"</div>"+
+       "<div class='meal-options'>"+"<a href="+"'"+item.recipeUrl+"'"+" target='_blank'>View Recipe</a>"+"<button>Add To Cookbook</button>"+"</div>"+
        "</div>").appendTo("#meal-container");
     });
 }
@@ -123,7 +125,7 @@ $(".search-btn").on("click", function () {
     event.preventDefault();
     let ingredients = $('#ingredient').val();
     // renderResults();
-    getData(ingredients, 10)
+    getData(ingredients, 6)
     // .then(getNutrition);
 });
 
