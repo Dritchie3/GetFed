@@ -1,4 +1,12 @@
-let recipes = [];
+let recipes = [
+    {
+        recipeName: "Deviled Ham",
+        imageURL: "https://www.edamam.com/web-img/ecb/ecbe5f690b7fc62cb134d52f172a4b32.jpg",
+    },
+    {
+        recipeName: "Deviled Ham",
+        imageURL: "https://www.edamam.com/web-img/ecb/ecbe5f690b7fc62cb134d52f172a4b32.jpg",
+    }];
 let cookbook = [];
 let times = 0;
 let nutrient;
@@ -8,7 +16,7 @@ let nutrient;
 
 function getData(ingredients, quantity) {
     let queryURL = 'https://api.edamam.com/search?q=' + ingredients + '&to=' + quantity + '&app_id=7c4bfe4e&app_key=d65e09f7ab643fa5a0668444302a33cc';
-    console.log('queryURL', queryURL);        
+    console.log('queryURL', queryURL);
     // Ajax query for Edamam
     return $.ajax({
         url: queryURL,
@@ -16,7 +24,7 @@ function getData(ingredients, quantity) {
     })
         .then(function (response) {
             recipes = [];
-            for (let i = 0 ; i < response.hits.length ; i++) {
+            for (let i = 0; i < response.hits.length; i++) {
                 console.log('i = ' + i);
                 // console.log(response);
                 var recipe = response.hits[i].recipe;
@@ -27,51 +35,72 @@ function getData(ingredients, quantity) {
                     cal: recipe.calories
                 };
                 if (recipe.totalNutrients.hasOwnProperty('CHOCDF')) {
-                    obj.carbs =  recipe.totalNutrients.CHOCDF.quantity
+                    obj.carbs = recipe.totalNutrients.CHOCDF.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('CHOCDF')) {
+                    obj.carbs = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FAT')) {
-                    obj.fat =  recipe.totalNutrients.FAT.quantity
+                    obj.fat = recipe.totalNutrients.FAT.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FAT')) {
+                    obj.fat = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FASAT')) {
-                    obj.saturatedFats =  recipe.totalNutrients.FASAT.quantity
+                    obj.saturatedFats = recipe.totalNutrients.FASAT.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FASAT')) {
+                    obj.saturatedFats = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FAPU')) {
-                    obj.polySatFats =  recipe.totalNutrients.FAPU.quantity
+                    obj.polySatFats = recipe.totalNutrients.FAPU.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FAPU')) {
+                    obj.polySatFats = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FAMS')) {
-                    obj.monoSatFats =  recipe.totalNutrients.FAMS.quantity
+                    obj.monoSatFats = 0;
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FAMS')) {
+                    obj.monoSatFats = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('PROCNT')) {
-                    obj.protien =  recipe.totalNutrients.PROCNT.quantity
+                    obj.protien = recipe.totalNutrients.PROCNT.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('PROCNT')) {
+                    obj.protien = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FIBTG')) {
-                    obj.fiber =  recipe.totalNutrients.FIBTG.quantity
+                    obj.fiber = recipe.totalNutrients.FIBTG.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FIBTG')) {
+                    obj.fiber = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('SUGAR')) {
-                    obj.sugar =  recipe.totalNutrients.SUGAR.quantity
+                    obj.sugar = recipe.totalNutrients.SUGAR.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('SUGAR')) {
+                    obj.sugar = 0;
                 };
-                console.log('working thus far');
-                
+
                 recipes.push(obj);
-               
-              
-                
             };
-     
-            
+
+
         });
 };
 //-------------------Render Search Results-------------------
 function renderSearch()
 {
-    recipes.forEach(function(item, indx){
-        let mealCardDiv = $("div");
-        let mealImg = $("img");
-
-        mealCardDiv.addclass("col-lg-3 meal-card");
-        mealImg.attr("src", item.imageURL);
-
-        $(".recipe-container").append(mealCardDiv).append(mealImg);
+    recipes.forEach(function(item, indx)
+    {
+        console.log();
+       $("<div class='col-lg-6 meal-card'>"+
+       "<div class=meal-img>"+"<img>"+"<h4 class='meal-title'>"+"Meal Title"+"</h4>"+"</div>"+
+       "<div class='meal-facts-right'>"+"<p>"+item.cal.toFixed(0)+"</p>"+"<p>"+item.carbs.toFixed(0)+"</p>"+"<p>"+item.fiber.toFixed(0)+"</p>"+"</div>"+
+       "<div class='meal-facts-left'>"+"<p>"+item.protien.toFixed(0)+"</p>"+"<p>"+item.fat.toFixed(0)+"</p>"+"<p>"+item.sugar.toFixed(0)+"</p>"+"</div>"+
+       "<div class='meal-options'>"+"<a href='#'>View Recipe</a>"+"<button>Add To Cookbook</button>"+"</div>"+
+       "</div>").appendTo("#meal-container");
     });
 }
 function givenNutrients(responseNutrient) {

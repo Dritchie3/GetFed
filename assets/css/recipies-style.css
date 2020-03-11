@@ -1,20 +1,103 @@
-.recipies
+
+#meal-container, .col-lg-6.meal-card
 {
-    max-height: 800px;
-    min-height: 800px;
-    background-color: khaki;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
 }
-ul.dropdown-menu
+.meal-card
 {
-    padding-left: 20px;
+    background-image: linear-gradient(rgba(112, 206, 208, 0.3),rgba(122, 206, 208, 0.3), rgba(122, 206, 208, .5));
 }
-input[type=checkbox] {
-    transform: scale(1.5);
-}
-.meal-card-img{
-    background-color: red;
-}
-.meal-card-img img
+.meal-img, .meal-img img
 {
-    height: 200px;
+    position: relative;
+    float: left;
+    text-align: center;
+    height: 250px;
+    width: 250px;
+    margin-right: 25px;
+}
+.meal-title
+{
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    padding: 5px 0px;
+    background-image: linear-gradient(rgba(112, 206, 208, 0.8),rgba(122, 206, 208, 0.8));
+    
+}
+.meal-facts-right p, .meal-facts-left p
+{
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: white;
+}
+.meal-facts-right, .meal-facts-left{
+    margin-top: 25px;
+}
+.meal-facts-right
+{
+    padding-right: 80px;
+    float: right;
+}
+.meal-options
+{
+    margin-top: 15px;
+}
+.meal-options button
+{
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(92, 175, 177);
+    border: transparent;
+}
+.meal-options button:hover
+{
+    background-color: rgb(106, 202, 204);
+    border: none;
+}
+.meal-options a{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+.meal-options a:hover
+{
+    color: rgb(106, 202, 204);
+}
+@media (max-width: 768px) 
+{
+    .meal-facts-right, .meal-facts-left{
+        margin-top: 0px;
+    }
+    .meal-options button
+    {
+       margin-top: 0px;
+       padding: 5px;
+    }
+    .meal-options
+    {
+        margin-top: 0px;
+    }
+    .meal-options a
+    {
+        font-size: 1rem;
+    }
+    .meal-facts-right p, .meal-facts-left p
+    {   
+        font-size: 1rem;
+    }
+    .meal-facts-right
+    {
+        padding-right:60px;
+    }
+    .meal-img, .meal-img img
+    {
+        height: 150px;
+        width: 150px;
+        margin-right: 15px;
+    }
 }

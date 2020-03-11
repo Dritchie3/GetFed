@@ -37,58 +37,80 @@
         </div>
 
         <div id="content">
-            
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
 
+
+            <nav class="navbar navbar-expand-lg">
 
                 <ul class="nav flex-row">
-                    <li>
+                    <li class="collapse-btn">
                         <button type="button" id="sidebar-collapse" class="btn btn-info">
                             <span><i class="fas fa-align-right"></i></span>
                         </button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Find Recipes</a>
+                        <a class="nav-link" href="#">Find Recipes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">My Cookbook</a>
                     </li>
                 </ul>
 
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <label>Restrictions</label>
+                        <button data-toggle="dropdown" class="btn" type="button">
+                            <i class="fas fa-caret-down"></i>
+                        </button>
+                        <ul role="menu" class="dropdown-menu">
+                            <li>
+                                <input class="check" type="checkbox">
+                                <span class="lbl">Shellfish-Free</span>
+                            <li>
+                                <input type="checkbox"><span class="lbl"> Gluten-Free</span>
+                            <li>
+                                <input type="checkbox"><span class="lbl"> Dairy-Free</span>
+                            <li>
+                                <input type="checkbox"><span class="lbl"> Peanut-Free</span>
+                            <li>
+                                <input type="checkbox"><span class="lbl"> Soy-Free</span>
+                        </ul>
+                    </div>
+                    <input id="ingredient" type="text" class="form-control">
+                    <button class="search-btn">Search</button>
+                </div>
+
             </nav>
+            <div id="meal-container" class="row container-fluid">
 
-            <div class="container-fluid">
+                <div class="col-lg-6 meal-card">
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <label>Restrictions</label>
-                                <button tabindex="-1" data-toggle="dropdown" class="btn btn-default dropdown-toggle"
-                                    type="button">
-                                    <span class="caret"></span>
-                                </button>
-                                <ul role="menu" class="dropdown-menu">
-                                    <li>
-                                        <input class="check" type="checkbox">
-                                        <span class="lbl">Shellfish-Free</span>
-                                    <li>
-                                        <input type="checkbox"><span class="lbl"> Gluten-Free</span>
-                                    <li>
-                                        <input type="checkbox"><span class="lbl"> Dairy-Free</span>
-                                    <li>
-                                        <input type="checkbox"><span class="lbl"> Peanut-Free</span>
-                                    <li>
-                                        <input type="checkbox"><span class="lbl"> Soy-Free</span>
-                                </ul>
-                            </div>
-                            <input id="ingredient" type="text" class="form-control">
-                            <button class="search-btn">Search</button>
-                        </div>
-
+                    <div class="meal-img">
+                        <img src="https://www.edamam.com/web-img/ecb/ecbe5f690b7fc62cb134d52f172a4b32.jpg" alt="">
+                        <h4 class="meal-title">Meal-Title</h4>
+                    </div>
+                    <div class="meal-facts-right">
+                        <p>Cal</p>
+                        <p>Cal</p>
+                        <p>Cal</p>
+                    </div>
+                    <div class="meal-facts-left">
+                        <p>Cal</p>
+                        <p>Cal</p>
+                        <p>Cal</p>
+                    </div>
+                    <div class="meal-options">
+                        <a href="#">View Recipe</a>
+                        <button>Add To Cookbook</button>
                     </div>
                 </div>
+
+                
+                
+
+
+
             </div>
+
         </div>
     </div>
     <!--Bootstrap Jquery----------------------------------------------->
