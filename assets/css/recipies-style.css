@@ -1,0 +1,117 @@
+
+#meal-container, .col-lg-6.meal-card
+{
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
+}
+.meal-card
+{
+    background-image: linear-gradient(rgba(112, 206, 208, 0.3),rgba(122, 206, 208, 0.3), rgba(122, 206, 208, .5));
+}
+.meal-img, .meal-img img
+{
+    position: relative;
+    float: left;
+    text-align: center;
+    height: 250px;
+    width: 250px;
+    margin-right: 25px;
+}
+.meal-title
+{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 60px;
+    bottom: 15px;
+    padding: 5px 0px;
+    background-image: linear-gradient(rgba(112, 206, 208, 0.8),rgba(122, 206, 208, 0.8));
+    
+}
+.meal-facts-right p, .meal-facts-left p
+{
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: white;
+}
+.meal-facts-right, .meal-facts-left{
+    margin-top: 25px;
+}
+.meal-facts-right
+{
+    padding-right: 30px;
+    float: right;
+}
+.meal-facts-left
+{
+    padding-right: 20px;
+}
+.meal-options
+{
+    margin-top: 15px;
+}
+.meal-options button
+{
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(92, 175, 177);
+    border: transparent;
+}
+.meal-options button:hover
+{
+    background-color: rgb(106, 202, 204);
+    border: none;
+}
+.meal-options a{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+.meal-options a:hover
+{
+    color: rgb(106, 202, 204);
+}
+@media (max-width: 768px) 
+{
+    .meal-facts-right, .meal-facts-left{
+        margin-top: 0px;
+    }
+    .meal-options button
+    {
+       margin-top: 0px;
+       padding: 5px;
+    }
+    .meal-options
+    {
+        margin-top: 0px;
+    }
+    .meal-options a
+    {
+        font-size: 1rem;
+    }
+    .meal-facts-right p, .meal-facts-left p
+    {   
+        font-size: 1rem;
+    }
+    .meal-facts-right, .meal-facts-left
+    {
+        padding-right:10px;
+        margin-right: 0;
+    }
+    .meal-img, .meal-img img
+    {
+        height: 150px;
+        width: 150px;
+        margin-right: 1px;
+    }
+}
+@media (max-width: 768px) and (orientation : landscape)
+{
+    .meal-options button
+    {
+      margin-left: 20px;
+    }
+}

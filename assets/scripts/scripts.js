@@ -1,4 +1,13 @@
-let recipes = [];
+let recipes = [
+    {
+        recipeName: "Deviled Ham",
+        imageURL: "https://www.edamam.com/web-img/ecb/ecbe5f690b7fc62cb134d52f172a4b32.jpg",
+    },
+    {
+        recipeName: "Deviled Ham",
+        imageURL: "https://www.edamam.com/web-img/ecb/ecbe5f690b7fc62cb134d52f172a4b32.jpg",
+    }];
+let cookbook = [];
 let times = 0;
 let nutrient;
 // let NutritionFacts = [];
@@ -7,15 +16,16 @@ let nutrient;
 
 function getData(ingredients, quantity) {
     let queryURL = 'https://api.edamam.com/search?q=' + ingredients + '&to=' + quantity + '&app_id=7c4bfe4e&app_key=d65e09f7ab643fa5a0668444302a33cc';
-    console.log('queryURL', queryURL);        
+    console.log('queryURL', queryURL);
     // Ajax query for Edamam
     return $.ajax({
         url: queryURL,
         method: "GET"
     })
         .then(function (response) {
+            console.log(response);
             recipes = [];
-            for (let i = 0 ; i < response.hits.length ; i++) {
+            for (let i = 0; i < response.hits.length; i++) {
                 console.log('i = ' + i);
                 // console.log(response);
                 var recipe = response.hits[i].recipe;
@@ -23,61 +33,78 @@ function getData(ingredients, quantity) {
                     recipeName: recipe.label,
                     imageURL: recipe.image,
                     ingredients: recipe.ingredients,
-                    cal: recipe.calories
+                    cal: recipe.calories,
+                    recipeUrl: recipe.url
                 };
                 if (recipe.totalNutrients.hasOwnProperty('CHOCDF')) {
-                    obj.carbs =  recipe.totalNutrients.CHOCDF.quantity
+                    obj.carbs = recipe.totalNutrients.CHOCDF.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('CHOCDF')) {
+                    obj.carbs = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FAT')) {
-                    obj.fat =  recipe.totalNutrients.FAT.quantity
+                    obj.fat = recipe.totalNutrients.FAT.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FAT')) {
+                    obj.fat = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FASAT')) {
-                    obj.saturatedFats =  recipe.totalNutrients.FASAT.quantity
+                    obj.saturatedFats = recipe.totalNutrients.FASAT.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FASAT')) {
+                    obj.saturatedFats = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FAPU')) {
-                    obj.polySatFats =  recipe.totalNutrients.FAPU.quantity
+                    obj.polySatFats = recipe.totalNutrients.FAPU.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FAPU')) {
+                    obj.polySatFats = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FAMS')) {
-                    obj.monoSatFats =  recipe.totalNutrients.FAMS.quantity
+                    obj.monoSatFats = 0;
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FAMS')) {
+                    obj.monoSatFats = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('PROCNT')) {
-                    obj.protien =  recipe.totalNutrients.PROCNT.quantity
+                    obj.protien = recipe.totalNutrients.PROCNT.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('PROCNT')) {
+                    obj.protien = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('FIBTG')) {
-                    obj.fiber =  recipe.totalNutrients.FIBTG.quantity
+                    obj.fiber = recipe.totalNutrients.FIBTG.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('FIBTG')) {
+                    obj.fiber = 0;
                 };
                 if (recipe.totalNutrients.hasOwnProperty('SUGAR')) {
-                    obj.sugar =  recipe.totalNutrients.SUGAR.quantity
+                    obj.sugar = recipe.totalNutrients.SUGAR.quantity
+                }
+                else if (!recipe.totalNutrients.hasOwnProperty('SUGAR')) {
+                    obj.sugar = 0;
                 };
-                console.log('working thus far');
 
-
-
-
-
-                //     carbs:  recipe.totalNutrients.CHOCDF.quantity,                    
-                //     fat: recipe.totalNutrients.FAT.quantity, 
-                //     saturatedFats: recipe.totalNutrients.FASAT.quantity,
-                //     polySatFats: recipe.totalNutrients.FAPU.quantity,
-                //     monoSatFats: recipe.totalNutrients.FAMS.quantity,
-                //     protien:  recipe.totalNutrients.PROCNT.quantity,
-                //     fiber: recipe.totalNutrients.FIBTG.quantity,                 
-                //     sugars: recipe.totalNutrients.SUGAR.quantity
-                
-
-                
-                // givenNutrients('carbs', response.hits[i].recipe.totalNutrients.CHOCDF.quantity);
-                
-                
                 recipes.push(obj);
-                console.log(obj);
-                
             };
-     
-            
+
+            renderSearch();
         });
 };
-
+//-------------------Render Search Results-------------------
+function renderSearch()
+{
+    $("#meal-container").empty();
+    recipes.forEach(function (item, indx)
+    {
+       $("<div class='col-lg-6 meal-card'>"+
+       "<div class=meal-img>"+"<img"+" "+"src="+"'"+item.imageURL+"'"+" "+"alt='meal-img'>"+"<h4 class='meal-title'>"+item.recipeName+"</h4>"+"</div>"+
+       "<div class='meal-facts-right'>"+"<p>"+"Cal: "+item.cal.toFixed(0)+"</p>"+"<p>"+"Carbs: "+item.carbs.toFixed(0)+"</p>"+"<p>"+"Fiber: "+item.fiber.toFixed(0)+"</p>"+"</div>"+
+       "<div class='meal-facts-left'>"+"<p>"+"Protein: "+item.protien.toFixed(0)+"</p>"+"<p>"+"Fat: "+item.fat.toFixed(0)+"</p>"+"<p>"+"Sugar: "+item.sugar.toFixed(0)+"</p>"+"</div>"+
+       "<div class='meal-options'>"+"<a href="+"'"+item.recipeUrl+"'"+" target='_blank'>View Recipe</a>"+"<button>Add To Cookbook</button>"+"</div>"+
+       "</div>").appendTo("#meal-container");
+    });
+}
 function givenNutrients(responseNutrient) {
     
     if (responseNutrient === undefined) {
@@ -93,83 +120,15 @@ function givenNutrients(responseNutrient) {
 
 
 // Buttton starts function not attached to any text box.
-$("#btn").on("click", function () {
+$(".search-btn").on("click", function () {
     console.log('choice button clicked');
     event.preventDefault();
     let ingredients = $('#ingredient').val();
     // renderResults();
-    getData('beef', 10)
+    getData(ingredients, 6)
     // .then(getNutrition);
 });
 
 
 
 // script moment clock
-$(document).ready(function () {
-    setInterval(() => {
-        var now = moment();
-        var readable = now.format("dddd MMM Do YYYY h:mm:ssa");
-        $("#menuItem").text(readable);
-    }, 1000);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-// function getNutrition(){
-//     let recipe = recipes[0];
-//     let recipeIngred = encodeURI(recipes[0].ingredients[0].text);
-//     let query2 = 'https://api.edamam.com/api/nutrition-data?app_id=6a19c081&app_key=f8bc949d4bca737a82744dc19e89b1fa&ingr=' + recipeIngred;
-//     console.log('query2 = ' + query2);
-//     console.log('recepeIngred = ' + recipeIngred);
-//     console.log('recipe = ' + recipe);
-    
-//     return $.ajax({
-//         url: query2,
-//         method: "GET"
-//     })
-//         .then(function (response1) {
-//             console.log('ajax is working');
-//                 let obj2 = {
-//                     cal: response1.calories,
-//                     carbs:  response1.dietLabels,
-//                     fat: response1.totalNutrients.FAT.quantity, 
-//                     saturatedFats: response1.totalNutrients.FASAT.quantity,
-//                     polySatFats: response1.totalNutrients.FAPU.quantity,
-//                     monoSatFats: response1.totalNutrients.FAMS.quantity,
-//                     protien:  response1.totalNutrients.PROCNT.quantity,
-//                     // fiber: ,  not available                  
-//                     // sugars: , not available
-                    
-//                 };                
-//                 nutritionFacts.push(obj2);                
-            
-//                 console.log('obj2 = ' + obj2);
-//                 console.log('nutritionFacts array = ' + nutritionFacts)
-
-//                 console.log('cal: = ' + response1.calories);
-//                 console.log('carbs: = ' +  response1.dietLabels);
-//                 console.log('fat: = ' + response1.totalNutrients.FAT.quantity); 
-//                 console.log('saturatedFats: = ' + response1.totalNutrients.FASAT.quantity);
-//                 console.log('polySatFats: = ' + response1.totalNutrients.FAPU.quantity);
-//                 console.log('monoSatFats: = ' + response1.totalNutrients.FAMS.quantity);
-//                 console.log('protien: = ' + response1.totalNutrients.PROCNT.quantity);
-//                 fiber: ,                    
-//                 sugars: ,
-
-//             });            
-
-// };
-
-
-
-
-

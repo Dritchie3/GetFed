@@ -1,29 +1,166 @@
-header {
-    font-family: Georgia;
-    font-weight: bolder;
-    font-size: 50px;
-    text-align: center;
-    color: blue;
-}
 
-nav {
-    border-style: solid;
-    border-color: lightgreen;
+body{
+    background-image: url("../img/green-background.jpg");
+    background-size: cover;
+    background-position: center;
 }
-
-.container {
-    margin: auto;
-    padding-top: 10px;
-    border: solid;
-    box-sizing: border-box;
+.wrapper
+{
+    display: flex;
+    width: 100%;
+    align-items: stretch;
 }
-
-footer {
-    text-align: center;
-    font-family: Georgia;
-    font-size: 20px;
-    color: limegreen;
-    position: relative;
-    clear: both;
+#content
+{
     
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+    max-height: 100vh;
+    transition: all 0.3s;
+}
+.collapse-btn
+{
+    margin-top: 6px;
+}
+#sidebar
+{
+    background-image: url("../img/orange-background.jpg");
+    background-size: cover;
+    background-position: center;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    margin-right: 60px;
+}
+#sidebar.active {
+    margin-left: -300px;
+    margin-right: 0px;
+}
+#notebook-spiral.active
+{
+    margin-left: -300px;
+}
+.sidebar-header
+{
+    color: white;
+    margin-top: 20px;
+    padding-left: 16px;
+    font-size: 1.5rem;
+}
+.navbar
+{
+    background-color: rgb(39, 39, 39);
+}
+#content .navbar
+{
+    position: relative;
+    padding: 10px;
+}
+#content
+{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.4))
+}
+.nav-item h2
+{
+    color: white;
+    margin: 0;
+}
+.input-group
+{
+    width: 400px !important;
+    margin-left: auto;
+    color: white;
+}
+#notebook-spiral
+{
+    background-image: url("../img/spiral.png");
+    background-size: 92px;
+    width: 92px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 200px;
+    top: -1px;
+    height: 100vh;
+    transition: all 0.3s;
+   
+}
+#date
+{
+    color: white;
+}
+.nav-link
+{
+    font-size: 1.5rem;
+    color: white;
+}
+ul.dropdown-menu
+{
+    padding-left: 20px;
+}
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+.fa-caret-down
+{
+    color: white;
+}
+@media (max-width: 768px) 
+{
+ 
+    .input-group
+    {
+         width: 300px !important;
+         margin-left: auto;
+         margin-right: auto;
+    }
+    #content
+    {
+        background-image: none;
+        width: 100%;
+        margin-right: 0;
+    }
+    #content.active
+    {
+        position: fixed;
+        left: 260px;
+    }
+    .sidebar-header h2
+    {
+        font-size: 1.7rem;
+    }
+
+    #notebook-spiral
+    {
+        margin-left: -300px;
+    }
+    #notebook-spiral
+    {
+        background-size: 70px;
+        left: 164px;
+        top: -3px;
+    }
+    #sidebar 
+    {
+        margin-left: -300px;
+        margin-right: 0;
+    }
+    #sidebar.active 
+    {
+        min-width: 200px;
+        max-width: 200px;
+        margin-left: 0;
+    }
+    #notebook-spiral.active
+    {
+        margin-left: 0;
+    }
+    
+    .nav-link
+    {
+        font-size: 1.2rem;
+        padding: 8px !important;
+    }
 }
